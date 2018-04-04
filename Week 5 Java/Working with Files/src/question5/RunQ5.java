@@ -8,9 +8,9 @@ import question3.Student;
 
 public class RunQ5 {
 	public static void main(String[] args) {
-		String path = System.getProperty("user.dir") +  "//students.csv";
-		String location = path;
-//		String location = "C:\\Users\\Students\\Desktop\\students.csv";
+// 		String path = System.getProperty("user.dir") +  "//students.csv";
+// 		String location = path;
+		String location = "C:\\Users\\Students\\Desktop\\students.csv";
 		
 		try {
 			File file = new File(location);
