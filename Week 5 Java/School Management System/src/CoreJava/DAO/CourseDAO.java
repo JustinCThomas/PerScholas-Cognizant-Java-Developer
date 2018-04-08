@@ -10,7 +10,12 @@ import CoreJava.Models.Course;
 
 public class CourseDAO {
     public List<Course> getAllCourses(){
-    	String path = System.getProperty("user.dir") + "\\src\\Courses.csv";
+//		Works on Windows 
+    	String path = System.getProperty("user.dir") + "\\src\\courses.csv";
+    	
+//		Works on Linux 
+//    	String path = System.getProperty("user.dir") + "//src//courses.csv";
+    	
 		File coursesFile = new File(path);
 		
 		List<Course> courses = new ArrayList<Course>();

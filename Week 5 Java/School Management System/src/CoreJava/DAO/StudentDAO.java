@@ -10,7 +10,12 @@ import java.util.Scanner;
 
 public class StudentDAO {
 	public List<Student> getStudents(){
-		String path = System.getProperty("user.dir") + "\\src\\Students.csv";
+//		Works on Windows 
+		String path = System.getProperty("user.dir") + "\\src\\students.csv";
+		
+//		Works on Linux
+//		String path = System.getProperty("user.dir") + "//src//students.csv";
+		
 		File studentFile = new File(path);
 		List<Student> students = new ArrayList<Student>();
 		
@@ -40,7 +45,6 @@ public class StudentDAO {
 	
 	public boolean validateUser(List<Student> studentList, String studentEmail, String studentPass) {
 		for (Student student: studentList) {
-			System.out.println(student.getEmail());
 			if (student.getEmail().equals(studentEmail)  && student.getPass().equals(studentPass)) {
 				
 				return true;
