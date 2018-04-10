@@ -14,6 +14,9 @@ public class Runner {
 		System.out.println(ColorHM.showMapContents(colors)[0]);
 		System.out.println(ColorHM.showMapContents(colors)[1]);
 		
+//		The value of the color at index 2 changed to "Purple" because of the line
+//		"colors.put(2, "Purple");"
+		
 //		Part 2
 		ColorHM.loopOverHashMap(colors);
 		
