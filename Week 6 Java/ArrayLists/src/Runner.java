@@ -56,7 +56,8 @@ public class Runner {
 		Colors.looper(secondArray);
 		System.out.println("////////////////");
 		
-		String[] convertedArray = Colors.converter(secondArray);
+		String[] convertedArray = Colors.converter(secondArray, secondArray.size());
+		
 		for (String item: convertedArray) {
 			System.out.println(item);
 		}

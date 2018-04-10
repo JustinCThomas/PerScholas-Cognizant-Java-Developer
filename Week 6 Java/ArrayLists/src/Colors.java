@@ -94,7 +94,7 @@ public class Colors {
 		}
 	}
 	
-	public static String[] converter(List<String> list) {
-		return list.toArray(new String[3]);
+	public static String[] converter(List<String> list, int size) {
+		return list.toArray(new String[size]);
 	}
 }
