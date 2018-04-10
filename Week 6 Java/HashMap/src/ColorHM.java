@@ -1,4 +1,6 @@
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 public class ColorHM {
 	public static HashMap<Integer, String> createMap(){
@@ -27,6 +29,15 @@ public class ColorHM {
 	public static void loopOverHashMap(HashMap<Integer, String> map) {
 		for (int i = 1; i <= map.size(); i++) {
 			System.out.println(i + " = " + map.get(i));
+		}
+		
+		System.out.println();
+		
+		Iterator<Map.Entry<Integer, String>> Iterator = map.entrySet().iterator();
+		while(Iterator.hasNext()) {
+			Map.Entry<Integer, String> entry = Iterator.next();
+			System.out.println("Key = " + entry.getKey() +
+								", Value = " + entry.getValue());
 		}
 		
 		System.out.println();
