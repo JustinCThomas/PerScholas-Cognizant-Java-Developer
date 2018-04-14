@@ -20,7 +20,7 @@ public class CartSystem extends TheSystem{
     		double tax = subtotal * 0.05;
     		double total = subtotal + tax;
     		System.out.println(item.getItemName() + ": " + item.getQuatity());
-    		System.out.format("Sub Total: %s\r\n", subtotal);
+    		System.out.format("Sub Total: %.2f\r\n", subtotal);
     		System.out.format("Tax: %.2f\r\n", tax);
     		System.out.format("Total: %.2f\r\n", total);
     		System.out.println();

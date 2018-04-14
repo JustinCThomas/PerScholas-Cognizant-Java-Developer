@@ -1,12 +1,10 @@
 package cartSystemExample;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.Scanner;
 
 public class TheSystem {
     private HashMap<String, Item> itemCollection;
@@ -51,36 +49,45 @@ public class TheSystem {
     }
     
     public Boolean add(Item item) {
-      if (itemCollection.containsValue(item)) {
-    	  if (item.getQuatity() < item.getAvailableQuatity()) {
-    		  int currentQuantity = item.getQuatity();
-    		  itemCollection.get(item.getItemName()).setQuatity(currentQuantity + 1);
-    		  return true;
-    	  } else {
-    		  return false;
-    	  }
-      } else {
-    	  itemCollection.put(item.getItemName(), item);
-    	  return true;
-      }
+    	if (itemCollection.containsValue(item)) {
+	    	if (checkAvailability(item, item.getQuatity())){
+	    		int currentQuantity = item.getQuatity();
+	    		itemCollection.get(item.getItemName()).setQuatity(currentQuantity + 1);
+	    		System.out.println("Item successfully added.");
+	    		return false;
+	    	} else {
+	    		return true;
+	    	}
+    	} else {
+    		try {
+    			itemCollection.put(item.getItemName(), item);
+    			System.out.println("Item successfully added.");
+    		} catch (NullPointerException e){
+    			System.out.println("An item of that name does not currently exist.");
+    			System.out.println("Please type the item name exactly as shown.");
+    		} 
+    		return true;
+    	}
     }
     
     public Item remove(String itemName) {
-        Item item = null;
         if (itemCollection.containsKey(itemName)) {
-        	item = itemCollection.remove(itemName);
+        	Item item = itemCollection.remove(itemName);
+        	System.out.println(itemName + " has been successfuly removed.");
         	return item;
         } else {
+        	System.out.println(itemName + " was not found.");
+        	System.out.println("Nothing has been removed.");
         	return null;
         }
     }
     
     public Boolean checkAvailability(Item item, Integer current) {
-    	if (item.getQuatity() + current > item.getAvailableQuatity()) {
+    	if (1 + current > item.getAvailableQuatity()) {
     		System.out.println(String.format("System is unable to add"
-    				+ "%s %s.\r\n"
+    				+ " %s %s.\r\n"
     				+ "System can only add %s %s.", 
-    				item.getQuatity(), item.getItemName(),
+    				1, item.getItemName(),
     				item.getAvailableQuatity() - item.getQuatity(), 
     				item.getItemName()));
     		return false;

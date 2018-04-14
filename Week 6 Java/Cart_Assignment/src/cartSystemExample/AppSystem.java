@@ -25,11 +25,21 @@ public class AppSystem extends TheSystem {
     }
     
     public Boolean add(Item item) {
-      if (this.getItemCollection().containsValue(item)) {
-    	  System.out.format("Item %s is already in the system."
-    	  , item.getItemName());
-    	  return false;
-      } 
+//    	Case Sensitive Version
+//      if (this.getItemCollection().containsKey(item.getItemName())) {
+//    	  System.out.format("Item %s is already in the system.\r\n"
+//    	  , item.getItemName());
+//    	  return false;
+//      }
+    	
+      for (String key: this.getItemCollection().keySet()){
+    	  if (key.toLowerCase().equals(item.getItemName().toLowerCase())) {
+    		  System.out.format("Item %s is already in the system.\r\n"
+    		  , item.getItemName());
+    		  return false;
+    	  }
+      }
+      
       HashMap<String, Item> hm = this.getItemCollection();
       hm.put(item.getItemName(), item);
       this.setItemCollection(hm);
