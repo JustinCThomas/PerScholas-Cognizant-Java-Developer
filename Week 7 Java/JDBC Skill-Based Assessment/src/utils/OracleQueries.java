@@ -21,7 +21,7 @@ public class OracleQueries {
 			+ "VALUES (?, ?)";
 	
 	public final static String COURSESBYSTUDENT = 
-			"SELECT course.course_name, instructor.full_name, "
+			"SELECT DISTINCT course.course_name, instructor.full_name, "
 			+ "instructor.email FROM course "
 			+ "JOIN attending ON course.course_id = attending.course_id " 
 			+ "JOIN student ON attending.student_id = student.student_id "
