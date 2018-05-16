@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Employee Registration Page</title>
+	<link type="text/css" rel="stylesheet" href="styles.css">
+</head>
+<body>
+	<h1>Employee Registration Page</h1>
+	<form method="POST" action="CSharpPage.cs">
+		<label>First Name: </label><input type="text" name="firstName" required>
+		<label>Last Name: </label><input type="text" name="lastName" required>
+		<label>Start Date: </label><input type="date" name="startDate" required>
+
+		<label>Title: </label>
+		<select name="title">
+			<option value="president">President</option>
+			<option value="vice president">Vice President</option>
+			<option value="treasurer">Treasurer</option>
+			<option value="operations manager">Operations Manager</option>
+			<option value="loan manager">Loan Manager</option>
+			<option value="head teller">Head Teller</option>
+			<option value="teller">Teller</option>
+		</select>
+
+		<label>Branch ID: </label><input type="text" name="branchID" required>
+
+
+		<label>Department ID: </label>
+		<select name="departmentID">
+			<option value="1">Operations</option>
+			<option value="2">Loans</option>
+			<option value="3">Administration</option>
+			<option value="4">IT</option>
+		</select>
+
+		<label>Manager: </label><input type="text" name="manager" required>
+		<input type="submit" name="register" value="Register Employee" title="Click to register">
+
+
+	</form>
+</body>
+</html>

@@ -1,0 +1,28 @@
+/** {
+	margin: 0;
+	padding: 0;
+}
+*/
+body{
+	text-align: center;
+	background-color: teal;
+	color: white;
+	font-family: sans-serif;
+	font-size: 18px;
+}
+
+form{
+	margin: 0 auto;
+	padding: 10px 0 0 10px;
+	width: 220px;
+	text-align: initial;
+	border: 1px solid lightgrey;
+	border-radius: 4px;
+}
+
+input, select {
+	width: 170px;
+	display: block;
+	margin-bottom: 15px;
+	padding: 0 2px;
+}

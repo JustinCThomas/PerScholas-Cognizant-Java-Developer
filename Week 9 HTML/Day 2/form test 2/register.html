@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<head>
+	<title>Employee Registration</title>
+	<link type="text/css" rel="stylesheet" href="css/form.css" />
+</head>
+<body>
+	<!-- Base Code Provided By Jacob -->
+	<div class="wrapper">
+		<h2>Employee Registration</h2>
+		<form action="">
+			<label for="first-name">First Name</label>
+			<input type="text" id="first-name" name="first-name" placeholder="First Name" required/>
+			<label for="last-name">Last Name</label>
+			<input type="text" id="last-name" name="last-name" placeholder="Last Name" required/>
+			<label for="start-date">Start Date</label>
+			<input type="date" id="start-date" name="start-date" required/>
+			<label for="title">Title</label>
+			<select id="title" name="title" required>
+				<option value="" disabled hidden selected>---Choose a title---</option>
+				<option value="1">President</option>
+				<option value="2">Vice President</option>
+				<option value="3">Treasurer</option>
+				<option value="4">Operations Manager</option>
+				<option value="5">Loan Manager</option>
+				<option value="6">Head Teller</option>
+				<option value="7">Teller</option>
+			</select>
+			<label for="branch">Branch</label>
+			<input type="text" id="branch" name="branch" placeholder="Branch" required/>
+			<label for="dept">Dept.</label>
+			<select id="dept" name="dept" required>
+				<option value="" disabled hidden selected>---Choose a department---</option>
+				<option value="1">Operations</option>
+				<option value="2">Loans</option>
+				<option value="3">Administration</option>
+				<option value="4">IT</option>
+			</select>
+			<label for="manager">Manager</label>
+			<!-- <select id="manager" name="manager">
+				<option value="">Choose a department</option>
+				<option value=""></option>
+			</select> -->
+			<input type="text" id="manager" name="manager" placeholder="Manager" required/>
+			<input type="submit" id="submit-button" value="Register" />
+		</form>
+	</div>
+	
+	<script type="text/javascript">
+		let startDate = document.getElementById("start-date");
+		var currentDate = new Date();
+		var day = currentDate.getDate();
+		var month = currentDate.getMonth() + 1;
+		var year = currentDate.getFullYear();
+
+		if (day < 10) {
+			day = "0" + day.toString();
+		}
+
+		if (month + 1 < 10) {
+			month = "0" + month.toString();
+		}
+
+		console.log(year + "-" + month + "-" + day);
+		startDate.value = year + "-" + month + "-" + day;
+	</script>
+</body>
+</html>
