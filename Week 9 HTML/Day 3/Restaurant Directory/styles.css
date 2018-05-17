@@ -17,10 +17,20 @@ img {
 	order: 1000;
 }
 
-#food {
+.flex-container {
 	display: flex;
 	margin: 0 auto;
 	justify-content: center;
+}
+
+.restaurant{
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	height: 150px;
+	width: 150px;
+	border-radius: 50%;
+	display: inline-block;
 }
 
 .food-img-container {
@@ -33,7 +43,21 @@ img {
 	display: inline-block;
 }
 
+.beverages-img-container {
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	height: 150px;
+	width: 150px;
+	border-radius: 50%;
+	display: inline-block;
+}
+
 .triple-cheeseburger {
-	background-image: url("https://pbs.twimg.com/media/Csp6EO5WEAQN0UL.jpg");
+	/*background-image: url("https://pbs.twimg.com/media/Csp6EO5WEAQN0UL.jpg");*/
 	background-size: 150%;
+}
+
+.selected {
+	box-shadow: 0 0 10px gold;
 }

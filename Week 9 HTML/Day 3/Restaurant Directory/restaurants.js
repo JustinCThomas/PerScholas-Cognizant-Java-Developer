@@ -6,79 +6,95 @@ const foodArrows = [leftArrows[1], rightArrows[1]];
 const drinksArrows = [leftArrows[2], rightArrows[2]];
 const comboArrows = [leftArrows[3], rightArrows[3]];
 
+let restaurants = document.getElementsByClassName("restaurant");
 let foodItems = document.getElementsByClassName("food-img-container");
+let beverages = document.getElementsByClassName("beverages-img-container");
 
-for (let i = 0; i < foodItems.length; i++){
-	if (i > 3){
-		foodItems[i].style.display = "none";
+addEvents(restaurantArrows, restaurants, "restaurantCount");
+addEvents(foodArrows, foodItems, "foodCount");
+addEvents(drinksArrows, beverages, "beverageCount");
+
+setFourOptions(restaurants);
+setFourOptions(foodItems);
+setFourOptions(beverages);
+
+
+function setFourOptions (optionType) {
+	for (let i = 0; i < optionType.length; i++){
+		if (i > 3){
+			optionType[i].style.display = "none";
+		}
 	}
 }
 
+
+let countHolder = {
+	foodCount: 0,
+	beverageCount: 0,
+	restaurantCount: 0
+};
+
 let currentCount = 0;
 
+function addEvents(arrowSet, itemCategorySet, countName){
+	if (itemCategorySet.length >= 4) {
+		arrowSet[0].addEventListener("click", () => {
+			console.log("clicked");
+			countHolder[countName] -= 1;
+			countHolder[countName] = checkCount(countHolder[countName], itemCategorySet);
+			displayFoodItems(countHolder[countName], itemCategorySet);
+		});
 
-for (let i = 0; i < leftArrows.length; i++){
-	leftArrows[i].addEventListener("click", () => {
-		console.log("clicked");
-		currentCount -= 1;
-		currentCount = checkCount(currentCount);
-		displayFoodItems(currentCount);
-	});
+		arrowSet[1].addEventListener("click", () => {
+			console.log("clicked right button");
+			countHolder[countName] += 1;
+			countHolder[countName] = checkCount(countHolder[countName], itemCategorySet);
+			displayFoodItems(countHolder[countName], itemCategorySet);
+		});
+	}
+	
 }
 
-for (let i = 0; i < rightArrows.length; i++){
-	rightArrows[i].addEventListener("click", () => {
-		console.log("clicked right button");
-		currentCount += 1;
-		currentCount = checkCount(currentCount);
-		displayFoodItems(currentCount);
-	});
-}
 
-function displayFoodItems(count){
-	for (let i = 0; i < foodItems.length; i++){
-		foodItems[i].style.display = "none";
-		foodItems[i].style.order = 100;
+function displayFoodItems(count, itemCategorySet){
+	for (let i = 0; i < itemCategorySet.length; i++){
+		itemCategorySet[i].style.display = "none";
+		itemCategorySet[i].style.order = 100;
 	}
 
 	let order = 1;
 
-	if (count > foodItems.length - 1){
-		count = 0;
-	}
-
-	for (let i = count; i <= count + 3; i++){
-		if (i <= foodItems.length - 1) {
-			foodItems[i].style.display = "inline-block";
-			foodItems[i].style.order = order;	
-		} else {
-			foodItems[0 + (i - foodItems.length)].style.display = "inline-block";
-			foodItems[0 + (i - foodItems.length)].style.order = order;	
+	if (count >= 0) {
+		for (let i = count; i <= count + 3	; i++){
+			if (i <= itemCategorySet.length - 1) {
+				itemCategorySet[i].style.display = "inline-block";
+				itemCategorySet[i].style.order = order;	
+			} else {
+				itemCategorySet[0 + (i - itemCategorySet.length)].style.display = "inline-block";
+				itemCategorySet[0 + (i - itemCategorySet.length)].style.order = order;	
+			}
+			order++;
 		}
-		
-		order++;
+	} else if (count < 0) {
+		for (let i = count; i <= count + 3; i++){
+			if (i < 0) {
+				itemCategorySet[itemCategorySet.length + i].style.display = "inline-block";
+				itemCategorySet[itemCategorySet.length + i].style.order = order;	
+			} else {
+				itemCategorySet[i].style.display = "inline-block";
+				itemCategorySet[i].style.order = order;	
+			}
+			order++;
+		}
 	}
 }
 
-function checkCount(count){
-	if (count > foodItems.length - 1) {
+function checkCount(count, itemCategorySet){
+	if (count > itemCategorySet.length - 1) {
 		return 0;
-	} else if (count < 0) {
-		return foodItems.length - 3;
+	} else if (count < 1 - itemCategorySet.length) {
+		return 0;
 	} else {
 		return count;
 	}
 }
-
-// let arr = [6, 1, 2, 3];
-// let foodWrapper = document.getElementById("food");
-// let items = foodWrapper.children;
-// let elements = document.createDocumentFragment();
-
-// arr.forEach(function(idx) {
-// 	elements.appendChild(items[idx].cloneNode(true));
-// });
-
-// foodWrapper.innerHTML = null;
-// foodWrapper.appendChild(elements);
-
