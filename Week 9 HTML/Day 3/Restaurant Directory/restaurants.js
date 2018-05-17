@@ -27,14 +27,11 @@ function setFourOptions (optionType) {
 	}
 }
 
-
 let countHolder = {
 	foodCount: 0,
 	beverageCount: 0,
 	restaurantCount: 0
 };
-
-let currentCount = 0;
 
 function addEvents(arrowSet, itemCategorySet, countName){
 	if (itemCategorySet.length >= 4) {
@@ -52,7 +49,6 @@ function addEvents(arrowSet, itemCategorySet, countName){
 			displayFoodItems(countHolder[countName], itemCategorySet);
 		});
 	}
-	
 }
 
 
