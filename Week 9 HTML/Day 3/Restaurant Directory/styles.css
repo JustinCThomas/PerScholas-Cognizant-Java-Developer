@@ -22,21 +22,25 @@ img {
 	margin: 0 auto;
 	justify-content: center;
 }
+.flex-container > * {
+	margin: 0 5px;
+}
 
 .restaurant{
 	background-repeat: no-repeat;
 	background-position: center;
-	background-size: cover;
+	background-size: 150%;
 	height: 150px;
 	width: 150px;
 	border-radius: 50%;
 	display: inline-block;
+	cursor: pointer;
 }
 
 .food-img-container {
 	background-repeat: no-repeat;
 	background-position: center;
-	background-size: cover;
+	background-size: 150%;
 	height: 150px;
 	width: 150px;
 	border-radius: 50%;
@@ -46,18 +50,21 @@ img {
 .beverages-img-container {
 	background-repeat: no-repeat;
 	background-position: center;
-	background-size: cover;
+	background-size: 150%;
 	height: 150px;
 	width: 150px;
 	border-radius: 50%;
 	display: inline-block;
 }
 
-.triple-cheeseburger {
-	/*background-image: url("https://pbs.twimg.com/media/Csp6EO5WEAQN0UL.jpg");*/
-	background-size: 150%;
+.mcdonalds-beverages {
+	background-position: right;
+}
+
+.bk-beverages {
+	background-size: 112%;
 }
 
 .selected {
-	box-shadow: 0 0 10px gold;
+	box-shadow: 0 0 20px gold, 0 0 26px red, 0 0 30px black;
 }
