@@ -17,8 +17,7 @@ height: 100%;
 </head>
 <%
 	String name=request.getParameter("name");
-	if(name==null || "".equals(name)) {
-		response.sendRedirect("errorPage.jsp");
+	if(name==null || "".equals(name)) {	
 		throw new Exception("Name is Empty");
 	}
 	Date date = new Date();

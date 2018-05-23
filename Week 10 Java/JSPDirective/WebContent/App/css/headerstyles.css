@@ -4,3 +4,16 @@
 	font-size: 100px;
 	height: 100%;
 }
+
+#pic {
+	height: 100px;
+	width: 160px;
+	border-radius: 50%;
+	position: absolute;
+    top: 20px;
+    left: 50px;
+}
+
+#navigation > * {
+	font-size: 14px;
+}
