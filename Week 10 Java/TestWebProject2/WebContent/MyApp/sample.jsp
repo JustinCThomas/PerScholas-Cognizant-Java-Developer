@@ -14,11 +14,9 @@
 	
 %>
 <body>
-<h2>
-Here's the counteeee: 
-<%=count%>
 
-</h2>
+<h2>Here's the count:<%=count%></h2>
+
 <%count++;%>	
 </body>
 </html>
