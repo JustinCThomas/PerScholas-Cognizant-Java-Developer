@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <%@page session="true" %>
 <%@page buffer="8kb" %>
 <%@page errorPage="errorPage.jsp" %>
@@ -27,12 +27,12 @@ height: 100%;
 <%@include file="header.html" %>
 </div>
 Current Date<%=date %>
-<div id="content" style="background-color: gray; height: 70%; text-align: center;">
+<div id="content" style="background-color: gray; height: 66%; text-align: center;">
 <br />
 <span style="color: green; font-size: 100px;">Welcome <%=name %></span>
 </div>
 <div
-style="height: 8%; bottom: 0; position: relative;">
+style="height: 12%; bottom: 0; position: relative;">
 <%@include file="footer.html"%>
 </div>
 
